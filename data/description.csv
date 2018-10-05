@@ -1,5 +1,10 @@
 label,sublabel,description,styles,bgcolor
-燃やさないごみ,,,img/moyasanai02.svg,#733b96
-資源,,,img/shigen02.svg,#77ae1f
-燃やすごみ,,,img/moyasu02.svg,#ea3b13
-びん,,,img/bin02.svg,#2dc7aa
+PCリサイクル,,,img/pcrecycle02.svg,#733b96
+可燃ごみ,,,img/kanen02.svg,#77ae1f
+家電リサイクル,,,img/kadenrecycle02.svg,#ea3b13
+回収不可,,,img/kaisyuhuka02.svg,#2dc7aa
+資源ごみ,,,img/shigen02.svg,#1CD82E
+処理困難ごみ,,,img/syorikonnan02.svg,#EEE90B
+粗大ごみ,,,img/sodai02.svg,#FA8AF5
+廃油回収,,,img/haiyu02.svg,#F8BEB2
+不燃ごみ,,,img/hunen02.svg,#D1E8C2
