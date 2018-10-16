@@ -1,7 +1,7 @@
 "use strict";
 
 /**
-  ã‚¨ãƒªã‚¢(ã”ã¿å‡¦ç†ã®åœ°åŸŸï¼‰ã‚’ç®¡ç†ã™ã‚‹ã‚¯ãƒ©ã‚¹ã§ã™ã€‚
+  ƒGƒŠƒA(‚²‚İˆ—‚Ì’nˆæj‚ğŠÇ—‚·‚éƒNƒ‰ƒX‚Å‚·B
 */
 var AreaModel = function() {
   this.label;
@@ -9,7 +9,7 @@ var AreaModel = function() {
   this.center;
   this.trash = new Array();
   /**
-  å„ã‚´ãƒŸã®ã‚«ãƒ†ã‚´ãƒªã«å¯¾ã—ã¦ã€æœ€ã‚‚ç›´è¿‘ã®æ—¥ä»˜ã‚’è¨ˆç®—ã—ã¾ã™ã€‚
+  ŠeƒSƒ~‚ÌƒJƒeƒSƒŠ‚É‘Î‚µ‚ÄAÅ‚à’¼‹ß‚Ì“ú•t‚ğŒvZ‚µ‚Ü‚·B
   */
   this.calcMostRect = function() {
     for (var i = 0; i < this.trash.length; i++) {
@@ -17,7 +17,7 @@ var AreaModel = function() {
     }
   }
   /**
-    ä¼‘æ­¢æœŸé–“ï¼ˆä¸»ã«å¹´æœ«å¹´å§‹ï¼‰ã‹ã©ã†ã‹ã‚’åˆ¤å®šã—ã¾ã™ã€‚
+    ‹x~ŠúŠÔiå‚É”N––”Nnj‚©‚Ç‚¤‚©‚ğ”»’è‚µ‚Ü‚·B
   */
   this.isBlankDay = function(currentDate) {
     if (!this.center) {
@@ -32,8 +32,8 @@ var AreaModel = function() {
     return false;
   }
   /**
-    ã‚´ãƒŸå‡¦ç†ã‚»ãƒ³ã‚¿ãƒ¼ã‚’ç™»éŒ²ã—ã¾ã™ã€‚
-    åå‰ãŒä¸€è‡´ã™ã‚‹ã‹ã©ã†ã‹ã§åˆ¤å®šã‚’è¡Œã£ã¦ãŠã‚Šã¾ã™ã€‚
+    ƒSƒ~ˆ—ƒZƒ“ƒ^[‚ğ“o˜^‚µ‚Ü‚·B
+    –¼‘O‚ªˆê’v‚·‚é‚©‚Ç‚¤‚©‚Å”»’è‚ğs‚Á‚Ä‚¨‚è‚Ü‚·B
   */
   this.setCenter = function(center_data) {
     for (var i in center_data) {
@@ -43,7 +43,7 @@ var AreaModel = function() {
     }
   }
   /**
-  ã‚´ãƒŸã®ã‚«ãƒ†ã‚´ãƒªã®ã‚½ãƒ¼ãƒˆã‚’è¡Œã„ã¾ã™ã€‚
+  ƒSƒ~‚ÌƒJƒeƒSƒŠ‚Ìƒ\[ƒg‚ğs‚¢‚Ü‚·B
   */
   this.sortTrash = function() {
     this.trash.sort(function(a, b) {
@@ -59,7 +59,7 @@ var AreaModel = function() {
 }
 
 /**
-  å„ã‚´ãƒŸã®ã‚«ãƒ†ã‚´ãƒªã‚’ç®¡ç†ã™ã‚‹ã‚¯ãƒ©ã‚¹ã§ã™ã€‚
+  ŠeƒSƒ~‚ÌƒJƒeƒSƒŠ‚ğŠÇ—‚·‚éƒNƒ‰ƒX‚Å‚·B
 */
 var TrashModel = function(_lable, _cell, remarks) {
   this.remarks = remarks;
@@ -84,27 +84,27 @@ var TrashModel = function(_lable, _cell, remarks) {
   }
   this.label = _lable;
   this.description;
-  this.regularFlg = 1;      // å®šæœŸå›åãƒ•ãƒ©ã‚°ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯ã‚ªãƒ³:1ï¼‰
+  this.regularFlg = 1;      // ’èŠú‰ñûƒtƒ‰ƒOiƒfƒtƒHƒ‹ƒg‚ÍƒIƒ“:1j
 
   var result_text = "";
   var today = new Date();
 
   for (var j in this.dayCell) {
     if (this.dayCell[j].length == 1) {
-      result_text += "æ¯é€±" + this.dayCell[j] + "æ›œæ—¥ ";
+      result_text += "–ˆT" + this.dayCell[j] + "—j“ú ";
     } else if (this.dayCell[j].length == 2 && this.dayCell[j].substr(0,1) != "*") {
-      result_text += "ç¬¬" + this.dayCell[j].charAt(1) + this.dayCell[j].charAt(0) + "æ›œæ—¥ ";
+      result_text += "‘æ" + this.dayCell[j].charAt(1) + this.dayCell[j].charAt(0) + "—j“ú ";
     } else if (this.dayCell[j].length == 2 && this.dayCell[j].substr(0,1) == "*") {
-    } else if (this.dayCell[j].length == 10 && this.dayCell[j].substr(0,1) == "éš”") {
-      /**** MOD: PICK biweek, Ex:éš”æœˆ20140401 ****/
+    } else if (this.dayCell[j].length == 10 && this.dayCell[j].substr(0,1) == "Šu") {
+      /**** MOD: PICK biweek, Ex:ŠuŒ20140401 ****/
       /****ADD****/
-      result_text += "éš”é€±" + this.dayCell[j].charAt(1) + "æ›œ ";
-      this.regularFlg = 2;      // éš”é€±ãƒ•ãƒ©ã‚°
+      result_text += "ŠuT" + this.dayCell[j].charAt(1) + "—j ";
+      this.regularFlg = 2;      // ŠuTƒtƒ‰ƒO
       /****ADD****/
     } else {
-      // ä¸å®šæœŸå›åã®å ´åˆï¼ˆYYYYMMDDæŒ‡å®šï¼‰
-      result_text = "ä¸å®šæœŸ ";
-      this.regularFlg = 0;  // å®šæœŸå›åãƒ•ãƒ©ã‚°ã‚ªãƒ•
+      // •s’èŠú‰ñû‚Ìê‡iYYYYMMDDw’èj
+      result_text = "•s’èŠú ";
+      this.regularFlg = 0;  // ’èŠú‰ñûƒtƒ‰ƒOƒIƒt
     }
   }
   if (monthSplitFlag){
@@ -114,11 +114,11 @@ var TrashModel = function(_lable, _cell, remarks) {
         if (monthList.length>0){
           monthList+=","
         }
-        //mã‚’æ•´æ•°åŒ–
+        //m‚ğ®”‰»
         monthList+=((m-0)+1)
       }
     };
-    monthList+="æœˆ "
+    monthList+="Œ "
     result_text=monthList+result_text
   }
   this.dayLabel = result_text;
@@ -126,13 +126,13 @@ var TrashModel = function(_lable, _cell, remarks) {
 
   this.getDateLabel = function() {
     if (this.mostRecent === undefined) {
-	return this.getRemark() + "ä¸æ˜";
+	return this.getRemark() + "•s–¾";
     }
     var result_text = this.mostRecent.getFullYear() + "/" + (1 + this.mostRecent.getMonth()) + "/" + this.mostRecent.getDate();
     return this.getRemark() + this.dayLabel + " " + result_text;
   }
 
-  var day_enum = ["æ—¥", "æœˆ", "ç«", "æ°´", "æœ¨", "é‡‘", "åœŸ"];
+  var day_enum = ["“ú", "Œ", "‰Î", "…", "–Ø", "‹à", "“y"];
 
   function getDayIndex(str) {
     for (var i = 0; i < day_enum.length; i++) {
@@ -143,7 +143,7 @@ var TrashModel = function(_lable, _cell, remarks) {
     return -1;
   }
   /**
-   * ã“ã®ã”ã¿åé›†æ—¥ãŒç‰¹æ®Šãªæ¡ä»¶ã‚’æŒã£ã¦ã„ã‚‹å ´åˆå‚™è€ƒã‚’è¿”ã—ã¾ã™ã€‚åé›†æ—¥ãƒ‡ãƒ¼ã‚¿ã«"*n" ãŒå…¥ã£ã¦ã„ã‚‹å ´åˆã«åˆ©ç”¨ã•ã‚Œã¾ã™
+   * ‚±‚Ì‚²‚İûW“ú‚ª“Áê‚ÈğŒ‚ğ‚Á‚Ä‚¢‚éê‡”õl‚ğ•Ô‚µ‚Ü‚·BûW“úƒf[ƒ^‚É"*n" ‚ª“ü‚Á‚Ä‚¢‚éê‡‚É—˜—p‚³‚ê‚Ü‚·
    */
   this.getRemark = function getRemark() {
     var ret = "";
@@ -159,53 +159,53 @@ var TrashModel = function(_lable, _cell, remarks) {
     return ret;
   }
   /**
-  ã“ã®ã‚´ãƒŸã®å¹´é–“ã®ã‚´ãƒŸã®æ—¥ã‚’è¨ˆç®—ã—ã¾ã™ã€‚
-  ã‚»ãƒ³ã‚¿ãƒ¼ãŒä¼‘æ­¢æœŸé–“ãŒã‚ã‚‹å ´åˆã¯ã€ãã®æœŸé–“ï¼‘é€±é–“ãšã‚‰ã™ã¨ã„ã†å®Ÿè£…ã‚’è¡Œã£ã¦ãŠã‚Šã¾ã™ã€‚
+  ‚±‚ÌƒSƒ~‚Ì”NŠÔ‚ÌƒSƒ~‚Ì“ú‚ğŒvZ‚µ‚Ü‚·B
+  ƒZƒ“ƒ^[‚ª‹x~ŠúŠÔ‚ª‚ ‚éê‡‚ÍA‚»‚ÌŠúŠÔ‚PTŠÔ‚¸‚ç‚·‚Æ‚¢‚¤À‘•‚ğs‚Á‚Ä‚¨‚è‚Ü‚·B
 */
   this.calcMostRect = function(areaObj) {
     var day_mix = this.dayCell;
     var result_text = "";
     var day_list = new Array();
 
-    // å®šæœŸå›åã®å ´åˆ
+    // ’èŠú‰ñû‚Ìê‡
     if (this.regularFlg == 1) {
 
       var today = new Date();
 
-      // 12æœˆ +3æœˆã€€ã‚’è¡¨ç¾
+      // 12Œ +3Œ@‚ğ•\Œ»
       for (var i = 0; i < MaxMonth; i++) {
 
         var curMonth = today.getMonth() + i;
         var curYear = today.getFullYear() + Math.floor(curMonth / 12);
         var month = (curMonth % 12) + 1;
 
-        // åé›†ãŒç„¡ã„æœˆã¯ã‚¹ã‚­ãƒƒãƒ—
+        // ûW‚ª–³‚¢Œ‚ÍƒXƒLƒbƒv
         if (this.mflag[month - 1] == 0) {
             continue;
         }
         for (var j in day_mix) {
-          //ä¼‘æ­¢æœŸé–“ã ã£ãŸã‚‰ã€ä»Šå¾Œä¸€é€±é–“ãšã‚‰ã™ã€‚
+          //‹x~ŠúŠÔ‚¾‚Á‚½‚çA¡ŒãˆêTŠÔ‚¸‚ç‚·B
           var isShift = false;
 
-          //week=0ãŒç¬¬1é€±ç›®ã§ã™ã€‚
+          //week=0‚ª‘æ1T–Ú‚Å‚·B
           for (var week = 0; week < 5; week++) {
-            //4æœˆ1æ—¥ã‚’èµ·ç‚¹ã¨ã—ã¦ç¬¬næ›œæ—¥ãªã©ã‚’è¨ˆç®—ã™ã‚‹ã€‚
+            //4Œ1“ú‚ğ‹N“_‚Æ‚µ‚Ä‘æn—j“ú‚È‚Ç‚ğŒvZ‚·‚éB
             var date = new Date(curYear, month - 1, 1);
             var d = new Date(date);
-            //ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ã‚„ã‚ã†ã¨ã™ã‚‹ã¨ã†ã¾ãè¡Œã‹ãªã‹ã£ãŸã€‚ã€‚
+            //ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Å‚â‚ë‚¤‚Æ‚·‚é‚Æ‚¤‚Ü‚­s‚©‚È‚©‚Á‚½BB
             //
-            //4æœˆ1æ—¥ã‚’åŸºæº–ã«ã—ã¦æ›œæ—¥ã®å·®åˆ†ã§æ™‚é–“ã‚’æˆ»ã—ã€æœ€å¤§ï¼•é€±ã¾ã§ã®å¢—åŠ ã•ã›ã¦æ¯é€±ã‚’è¡¨ç¾
+            //4Œ1“ú‚ğŠî€‚É‚µ‚Ä—j“ú‚Ì·•ª‚ÅŠÔ‚ğ–ß‚µAÅ‘å‚TT‚Ü‚Å‚Ì‘‰Á‚³‚¹‚Ä–ˆT‚ğ•\Œ»
             d.setTime(date.getTime() + 1000 * 60 * 60 * 24 *
               ((7 + getDayIndex(day_mix[j].charAt(0)) - date.getDay()) % 7) + week * 7 * 24 * 60 * 60 * 1000
             );
-            //å¹´æœ«å¹´å§‹ä¼‘æš‡ã®ã‚¹ã‚­ãƒƒãƒ—å¯¾å¿œ
+            //”N––”Nn‹x‰É‚ÌƒXƒLƒbƒv‘Î‰
             if (SkipSuspend) {
               if (areaObj.isBlankDay(d)) {
                 continue;
               }
             }
-            //å¹´æœ«å¹´å§‹ã®ãšã‚‰ã—ã®å¯¾å¿œ
-            //ä¼‘æ­¢æœŸé–“ãªã‚‰ã€ä»Šå¾Œã®æ—¥ç¨‹ã‚’ï¼‘é€±é–“ãšã‚‰ã™
+            //”N––”Nn‚Ì‚¸‚ç‚µ‚Ì‘Î‰
+            //‹x~ŠúŠÔ‚È‚çA¡Œã‚Ì“ú’ö‚ğ‚PTŠÔ‚¸‚ç‚·
             if (areaObj.isBlankDay(d)) {
             if (WeekShift) {
                 isShift = true;
@@ -217,11 +217,11 @@ var TrashModel = function(_lable, _cell, remarks) {
             if (isShift) {
               d.setTime(d.getTime() + 7 * 24 * 60 * 60 * 1000);
             }
-            //åŒã˜æœˆã®æ™‚ã®ã¿å‡¦ç†ã—ãŸã„
+            //“¯‚¶Œ‚Ì‚Ì‚İˆ—‚µ‚½‚¢
             if (d.getMonth() != (month - 1) % 12) {
               continue;
             }
-            //ç‰¹å®šã®é€±ã®ã¿å‡¦ç†ã™ã‚‹
+            //“Á’è‚ÌT‚Ì‚İˆ—‚·‚é
             if (day_mix[j].length > 1) {
               if ((week != day_mix[j].charAt(1) - 1) || ("*" == day_mix[j].charAt(0))) {
                 continue;
@@ -234,20 +234,20 @@ var TrashModel = function(_lable, _cell, remarks) {
       }
       /****ASS****/
     } else if (this.regularFlg == 2) {
-      // éš”é€±å›åã®å ´åˆã¯ã€basedateã«æŒ‡å®šåˆå›æ—¥ä»˜ã‚’ã‚»ãƒƒãƒˆ
+      // ŠuT‰ñû‚Ìê‡‚ÍAbasedate‚Éw’è‰‰ñ“ú•t‚ğƒZƒbƒg
       for (var j in day_mix) {
         var year = parseInt(day_mix[j].substr(2, 4));
         var month = parseInt(day_mix[j].substr(6, 2)) - 1;
         var day = parseInt(day_mix[j].substr(8, 2));
         var basedate = new Date(year, month, day);
 
-        //week=0ãŒç¬¬1é€±ç›®ã§ã™ã€‚
+        //week=0‚ª‘æ1T–Ú‚Å‚·B
         for (var week = 0; week < 27; week++) {
-          // basedate ã‚’èµ·ç‚¹ã«ã€æœ€ã‚‚è¿‘ã„å¶æ•°é€±ç›®ã‚’è¨ˆç®—ã™ã‚‹ã€‚
+          // basedate ‚ğ‹N“_‚ÉAÅ‚à‹ß‚¢‹ô”T–Ú‚ğŒvZ‚·‚éB
           var d = new Date(date);
-          // basedate ã‚’åŸºæº–ã«ã€æœ€å¤§53é€±ã¾ã§å¢—åŠ ã•ã›ã¦éš”é€±ã‚’è¡¨ç¾
+          // basedate ‚ğŠî€‚ÉAÅ‘å53T‚Ü‚Å‘‰Á‚³‚¹‚ÄŠuT‚ğ•\Œ»
           d.setTime( basedate.getTime() + week * 14 * 24 * 60 * 60 * 1000 );
-          //å¹´æœ«å¹´å§‹ä¼‘æš‡ã®ã‚¹ã‚­ãƒƒãƒ—å¯¾å¿œ
+          //”N––”Nn‹x‰É‚ÌƒXƒLƒbƒv‘Î‰
           if (SkipSuspend) {
             if (areaObj.isBlankDay(d)) {
               continue;
@@ -258,7 +258,7 @@ var TrashModel = function(_lable, _cell, remarks) {
       }
     /***ADD*****/   
     } else {
-      // ä¸å®šæœŸå›åã®å ´åˆã¯ã€ãã®ã¾ã¾æŒ‡å®šã•ã‚ŒãŸæ—¥ä»˜ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
+      // •s’èŠú‰ñû‚Ìê‡‚ÍA‚»‚Ì‚Ü‚Üw’è‚³‚ê‚½“ú•t‚ğƒZƒbƒg‚·‚é
       for (var j in day_mix) {
         var year = parseInt(day_mix[j].substr(0, 4));
         var month = parseInt(day_mix[j].substr(4, 2)) - 1;
@@ -267,8 +267,8 @@ var TrashModel = function(_lable, _cell, remarks) {
         day_list.push(d);
       }
     }
-    //æ›œæ—¥ã«ã‚ˆã£ã¦ã¯æ—¥ä»˜é †ã§ã¯ãªã„ã®ã§æœ€çµ‚çš„ã«ã‚½ãƒ¼ãƒˆã™ã‚‹ã€‚
-    //ã‚½ãƒ¼ãƒˆã—ãªãã¦ã‚‚ãªã‚“ã¨ãªã‚Šãã†ãªæ°—ã‚‚ã—ã¾ã™ãŒã€ã¨ã‚Šã‚ãˆãšã‚½ãƒ¼ãƒˆ
+    //—j“ú‚É‚æ‚Á‚Ä‚Í“ú•t‡‚Å‚Í‚È‚¢‚Ì‚ÅÅI“I‚Éƒ\[ƒg‚·‚éB
+    //ƒ\[ƒg‚µ‚È‚­‚Ä‚à‚È‚ñ‚Æ‚È‚è‚»‚¤‚È‹C‚à‚µ‚Ü‚·‚ªA‚Æ‚è‚ ‚¦‚¸ƒ\[ƒg
     day_list.sort(function(a, b) {
       var at = a.getTime();
       var bt = b.getTime();
@@ -276,7 +276,7 @@ var TrashModel = function(_lable, _cell, remarks) {
       if (at > bt) return 1;
       return 0;
     })
-    //ç›´è¿‘ã®æ—¥ä»˜ã‚’æ›´æ–°
+    //’¼‹ß‚Ì“ú•t‚ğXV
     var now = new Date();
     for (var i in day_list) {
       if (this.mostRecent == null && now.getTime() < day_list[i].getTime() + 24 * 60 * 60 * 1000) {
@@ -288,7 +288,7 @@ var TrashModel = function(_lable, _cell, remarks) {
     this.dayList = day_list;
   }
   /**
-   è¨ˆç®—ã—ãŸã‚´ãƒŸã®æ—¥ä¸€è¦§ã‚’ãƒªã‚¹ãƒˆå½¢å¼ã¨ã—ã¦å–å¾—ã—ã¾ã™ã€‚
+   ŒvZ‚µ‚½ƒSƒ~‚Ì“úˆê——‚ğƒŠƒXƒgŒ`®‚Æ‚µ‚Äæ“¾‚µ‚Ü‚·B
   */
   this.getDayList = function() {
     var day_text = "<ul>";
@@ -301,7 +301,7 @@ var TrashModel = function(_lable, _cell, remarks) {
   }
 }
 /**
-ã‚»ãƒ³ã‚¿ãƒ¼ã®ãƒ‡ãƒ¼ã‚¿ã‚’ç®¡ç†ã—ã¾ã™ã€‚
+ƒZƒ“ƒ^[‚Ìƒf[ƒ^‚ğŠÇ—‚µ‚Ü‚·B
 */
 var CenterModel = function(row) {
   function getDay(center, index) {
@@ -314,8 +314,8 @@ var CenterModel = function(row) {
   this.endDate = getDay(row, 2);
 }
 /**
-* ã‚´ãƒŸã®ã‚«ãƒ†ã‚´ãƒªã‚’ç®¡ç†ã™ã‚‹ã‚¯ãƒ©ã‚¹ã§ã™ã€‚
-* description.csvã®ãƒ¢ãƒ‡ãƒ«ã§ã™ã€‚
+* ƒSƒ~‚ÌƒJƒeƒSƒŠ‚ğŠÇ—‚·‚éƒNƒ‰ƒX‚Å‚·B
+* description.csv‚Ìƒ‚ƒfƒ‹‚Å‚·B
 */
 var DescriptionModel = function(data) {
   this.targets = new Array();
@@ -328,8 +328,8 @@ var DescriptionModel = function(data) {
 
 }
 /**
- * ã‚´ãƒŸã®ã‚«ãƒ†ã‚´ãƒªã®ä¸­ã®ã‚´ãƒŸã®å…·ä½“çš„ãªãƒªã‚¹ãƒˆã‚’ç®¡ç†ã™ã‚‹ã‚¯ãƒ©ã‚¹ã§ã™ã€‚
- * target.csvã®ãƒ¢ãƒ‡ãƒ«ã§ã™ã€‚
+ * ƒSƒ~‚ÌƒJƒeƒSƒŠ‚Ì’†‚ÌƒSƒ~‚Ì‹ï‘Ì“I‚ÈƒŠƒXƒg‚ğŠÇ—‚·‚éƒNƒ‰ƒX‚Å‚·B
+ * target.csv‚Ìƒ‚ƒfƒ‹‚Å‚·B
  */
 var TargetRowModel = function(data) {
   this.label = data[0];
@@ -339,8 +339,8 @@ var TargetRowModel = function(data) {
 }
 
 /**
- * ã‚´ãƒŸåé›†æ—¥ã«é–¢ã™ã‚‹å‚™è€ƒã‚’ç®¡ç†ã™ã‚‹ã‚¯ãƒ©ã‚¹ã§ã™ã€‚
- * remarks.csvã®ãƒ¢ãƒ‡ãƒ«ã§ã™ã€‚
+ * ƒSƒ~ûW“ú‚ÉŠÖ‚·‚é”õl‚ğŠÇ—‚·‚éƒNƒ‰ƒX‚Å‚·B
+ * remarks.csv‚Ìƒ‚ƒfƒ‹‚Å‚·B
  */
 var RemarkModel = function(data) {
   this.id = data[0];
@@ -355,29 +355,41 @@ $(function() {
   var center_data = new Array();
   var descriptions = new Array();
   var areaModels = new Array();
+  var areaGroup = new Object();
+  var groupOrder = new Array();
   var remarks = new Array();
 /*   var descriptions = new Array(); */
 
 
   function getSelectedAreaName() {
-    return localStorage.getItem("selected_area_name");
+    var val = localStorage.getItem("selected_area_name");
+    return val ? val : -1;
   }
 
   function setSelectedAreaName(name) {
     localStorage.setItem("selected_area_name", name);
   }
 
+  function getSelectedGroupName() {
+    var val = localStorage.getItem("selected_group_name");
+    return val ? val : -1;
+  }
+
+  function setSelectedGroupName(name) {
+    localStorage.setItem("selected_group_name", name);
+  }
+
   function csvToArray(filename, cb) {
     $.get(filename, function(csvdata) {
-      //CSVã®ãƒ‘ãƒ¼ã‚¹ä½œæ¥­
-      //CRã®è§£æãƒŸã‚¹ãŒã‚ã£ãŸç®‡æ‰€ã‚’ä¿®æ­£ã—ã¾ã—ãŸã€‚
-      //ä»¥å‰ã®ã‚³ãƒ¼ãƒ‰ã ã¨CRãŒæ®‹ã£ãŸã¾ã¾ã«ãªã‚Šã¾ã™ã€‚
+      //CSV‚Ìƒp[ƒXì‹Æ
+      //CR‚Ì‰ğÍƒ~ƒX‚ª‚ ‚Á‚½‰ÓŠ‚ğC³‚µ‚Ü‚µ‚½B
+      //ˆÈ‘O‚ÌƒR[ƒh‚¾‚ÆCR‚ªc‚Á‚½‚Ü‚Ü‚É‚È‚è‚Ü‚·B
       // var csvdata = csvdata.replace("\r/gm", ""),
        csvdata = csvdata.replace(/\r/gm, "");
       var line = csvdata.split("\n"),
           ret = [];
       for (var i in line) {
-        //ç©ºè¡Œã¯ã‚¹ãƒ«ãƒ¼ã™ã‚‹ã€‚
+        //‹ós‚ÍƒXƒ‹[‚·‚éB
         if (line[i].length == 0) continue;
 
         var row = line[i].split(",");
@@ -393,11 +405,23 @@ $(function() {
       for (var i in tmp) {
         var row = tmp[i];
         var area = new AreaModel();
+        var areas = row[0].split(" ");
+        var group_name = areas.shift();
+        if (!areaGroup.hasOwnProperty(group_name)) {
+            areaGroup[group_name] = new Object();
+            groupOrder.push(group_name);
+        }
+        var group = areaGroup[group_name];
+        for (var j in areas) {
+            var area_name = areas[j];
+            if (area_name == "" || area_name == " ") continue;
+            group[area_name] = area;
+        }
         area.label = row[0];
         area.centerName = row[1];
 
         areaModels.push(area);
-        //ï¼’åˆ—ç›®ä»¥é™ã®å‡¦ç†
+        //‚Q—ñ–ÚˆÈ~‚Ìˆ—
         for (var r = 2; r < 2 + MaxDescription; r++) {
           if (area_days_label[r]) {
             var trash = new TrashModel(area_days_label[r], row[r], remarks);
@@ -407,10 +431,10 @@ $(function() {
       }
 
       csvToArray("data/center.csv", function(tmp) {
-        //ã‚´ãƒŸå‡¦ç†ã‚»ãƒ³ã‚¿ãƒ¼ã®ãƒ‡ãƒ¼ã‚¿ã‚’è§£æã—ã¾ã™ã€‚
-        //è¡¨ç¤ºä¸Šã¯ç¾ã‚Œã¾ã›ã‚“ãŒã€
-        //é‡‘æ²¢ãªã©ã®å„å‡¦ç†ã‚»ãƒ³ã‚¿ãƒ¼ã®ä¼‘æ­¢æœŸé–“åˆ†ã¯ä¸€é€±é–“ãšã‚‰ã™ã¨ã„ã†æ³•å‰‡æ€§ã®ãŸã‚
-        //ä¾‹ãˆã°ç¬¬ä¸€é‡‘æ›œæ—¥ã®ã¨ãã¯ã€ä¸€å‘¨ãšã‚‰ã—ãã®æœˆã ã‘ç¬¬äºŒé‡‘æ›œæ—¥ã«ã™ã‚‹
+        //ƒSƒ~ˆ—ƒZƒ“ƒ^[‚Ìƒf[ƒ^‚ğ‰ğÍ‚µ‚Ü‚·B
+        //•\¦ã‚ÍŒ»‚ê‚Ü‚¹‚ñ‚ªA
+        //‹à‘ò‚È‚Ç‚ÌŠeˆ—ƒZƒ“ƒ^[‚Ì‹x~ŠúŠÔ•ª‚ÍˆêTŠÔ‚¸‚ç‚·‚Æ‚¢‚¤–@‘¥«‚Ì‚½‚ß
+        //—á‚¦‚Î‘æˆê‹à—j“ú‚Ì‚Æ‚«‚ÍAˆêü‚¸‚ç‚µ‚»‚ÌŒ‚¾‚¯‘æ“ñ‹à—j“ú‚É‚·‚é
         tmp.shift();
         for (var i in tmp) {
           var row = tmp[i];
@@ -418,38 +442,75 @@ $(function() {
           var center = new CenterModel(row);
           center_data.push(center);
         }
-        //ã‚´ãƒŸå‡¦ç†ã‚»ãƒ³ã‚¿ãƒ¼ã‚’å¯¾å¿œã™ã‚‹å„åœ°åŸŸã«å‰²ã‚Šå½“ã¦ã¾ã™ã€‚
+        //ƒSƒ~ˆ—ƒZƒ“ƒ^[‚ğ‘Î‰‚·‚éŠe’nˆæ‚ÉŠ„‚è“–‚Ä‚Ü‚·B
         for (var i in areaModels) {
           var area = areaModels[i];
           area.setCenter(center_data);
         };
-        //ã‚¨ãƒªã‚¢ã¨ã‚´ãƒŸå‡¦ç†ã‚»ãƒ³ã‚¿ãƒ¼ã‚’å¯¾å¿œå¾Œã«ã€è¡¨ç¤ºã®ãƒªã‚¹ãƒˆã‚’ç”Ÿæˆã™ã‚‹ã€‚
-        //Listãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®HTMLä½œæˆ
-        var selected_name = getSelectedAreaName();
-        var area_select_form = $("#select_area");
-        var select_html = "";
-        select_html += '<option value="-1">åœ°åŸŸã‚’é¸æŠã—ã¦ãã ã•ã„</option>';
-        for (var row_index in areaModels) {
-          var area_name = areaModels[row_index].label;
-          var selected = (selected_name == area_name) ? 'selected="selected"' : "";
 
-          select_html += '<option value="' + row_index + '" ' + selected + " >" + area_name + "</option>";
-        }
+         createSelectBox();
 
-        //ãƒ‡ãƒãƒƒã‚°ç”¨
+        //ƒfƒoƒbƒO—p
         if (typeof dump == "function") {
           dump(areaModels);
         }
-        //HTMLã¸ã®é©å¿œ
+        //HTML‚Ö‚Ì“K‰
         area_select_form.html(select_html);
         area_select_form.change();
       });
     });
   }
 
+  function createSelectBox () {
+    var $select_area = $('#select_area');
+    var $select_group = $('#select_group');
+    var selected_group = $select_group.val();
+    $select_area.hide();
+    var options_html = '<option value="-1" selected="selected">‹æ‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢</option>';
+    for (var i in groupOrder) {
+      var group = groupOrder[i];
+      options_html += '<option value="' + group + '">' + group + '</option>';
+    }
+    $select_group.change(function (elem) {
+      if ($select_group.val() == -1) {
+        $select_area.val(-1);
+        $select_area.hide();
+        return;
+      }
+      createAreaSelect();
+      $("#accordion").html("");
+      $select_area.show();
+      $select_area.val(-1);
+      $select_area.change();
+    });
+    $select_group.html(options_html);
+    var value = getSelectedGroupName();
+    $select_group.val(value);
+    createAreaSelect();
+    console.log(value);
+    if (value != -1) { $select_area.show(); }
+    $select_area.val(getSelectedAreaName());
+    onChangeSelect(getSelectedGroupName(), getSelectedAreaName());
+  }
+
+  function createAreaSelect() {
+    var $select_area = $('#select_area');
+    var $select_group = $('#select_group');
+    var select_html = "";
+    var selected_name = getSelectedAreaName();
+    select_html += '<option value="-1">’nˆæ‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢</option>';
+    var group = areaGroup[$select_group.val()];
+    for (var area_name in group) {
+      var selected = (selected_name == area_name) ? 'selected="selected"': '';
+      select_html += '<option value="' + area_name + '" ' + selected + '>' + area_name + '</option>';
+    }
+    $select_area.html(select_html);
+    $select_area.insertAfter($select_group);
+    $select_area.val(selected_name);
+  }
 
   function createMenuList(after_action) {
-    // å‚™è€ƒãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã‚€
+    // ”õlƒf[ƒ^‚ğ“Ç‚İ‚Ş
     csvToArray("data/remarks.csv", function(data) {
       data.shift();
       for (var i in data) {
@@ -468,7 +529,7 @@ $(function() {
         for (var i in data) {
           var row = new TargetRowModel(data[i]);
           for (var j = 0; j < descriptions.length; j++) {
-            //ä¸€è‡´ã—ã¦ã‚‹ã‚‚ã®ã«è¿½åŠ ã™ã‚‹ã€‚
+            //ˆê’v‚µ‚Ä‚é‚à‚Ì‚É’Ç‰Á‚·‚éB
             if (descriptions[j].label == row.label) {
               descriptions[j].targets.push(row);
               break;
@@ -485,16 +546,16 @@ $(function() {
   }
 
   function updateData(row_index) {
-    //SVG ãŒä½¿ãˆã‚‹ã‹ã©ã†ã‹ã®åˆ¤å®šã‚’è¡Œã†ã€‚
-    //TODO Android 2.3ä»¥ä¸‹ã§ã¯è¦‹ã‚Œãªã„ï¼ˆä»£æ›¿ã®è¡¨ç¤ºã‚‚å«ã‚ï¼‰ä¸å…·åˆãŒæ”¹å–„ã•ã‚Œã¦ãªã„ã€‚ã€‚
-    //å‚è€ƒ http://satussy.blogspot.jp/2011/12/javascript-svg.html
+    //SVG ‚ªg‚¦‚é‚©‚Ç‚¤‚©‚Ì”»’è‚ğs‚¤B
+    //TODO Android 2.3ˆÈ‰º‚Å‚ÍŒ©‚ê‚È‚¢i‘ã‘Ö‚Ì•\¦‚àŠÜ‚ßj•s‹ï‡‚ª‰ü‘P‚³‚ê‚Ä‚È‚¢BB
+    //Ql http://satussy.blogspot.jp/2011/12/javascript-svg.html
     var ableSVG = (window.SVGAngle !== void 0);
-    //var ableSVG = false;  // SVGæœªä½¿ç”¨ã®å ´åˆã€descriptionã®1é …ç›®ç›®ã‚’ä½¿ç”¨
+    //var ableSVG = false;  // SVG–¢g—p‚Ìê‡Adescription‚Ì1€–Ú–Ú‚ğg—p
     var areaModel = areaModels[row_index];
     var today = new Date();
-    //ç›´è¿‘ã®ä¸€ç•ªè¿‘ã„æ—¥ä»˜ã‚’è¨ˆç®—ã—ã¾ã™ã€‚
+    //’¼‹ß‚Ìˆê”Ô‹ß‚¢“ú•t‚ğŒvZ‚µ‚Ü‚·B
     areaModel.calcMostRect();
-    //ãƒˆãƒ©ãƒƒã‚·ãƒ¥ã®è¿‘ã„é †ã«ã‚½ãƒ¼ãƒˆã—ã¾ã™ã€‚
+    //ƒgƒ‰ƒbƒVƒ…‚Ì‹ß‚¢‡‚Éƒ\[ƒg‚µ‚Ü‚·B
     areaModel.sortTrash();
     var accordion_height = $(window).height() / descriptions.length;
     if(descriptions.length>4){
@@ -504,7 +565,7 @@ $(function() {
     }
     var styleHTML = "";
     var accordionHTML = "";
-    //ã‚¢ã‚³ãƒ¼ãƒ‡ã‚£ã‚ªãƒ³ã®åˆ†é¡ã‹ã‚‰å¯¾å¿œã®è¨ˆç®—ã‚’è¡Œã„ã¾ã™ã€‚
+    //ƒAƒR[ƒfƒBƒIƒ“‚Ì•ª—Ş‚©‚ç‘Î‰‚ÌŒvZ‚ğs‚¢‚Ü‚·B
     for (var i in areaModel.trash) {
       var trash = areaModel.trash[i];
 
@@ -538,21 +599,21 @@ $(function() {
           target_tag += "</ul>";
 
           var dateLabel = trash.getDateLabel();
-          //ã‚ã¨ä½•æ—¥ã‹ã‚’è¨ˆç®—ã™ã‚‹å‡¦ç†ã§ã™ã€‚
+          //‚ ‚Æ‰½“ú‚©‚ğŒvZ‚·‚éˆ—‚Å‚·B
           var leftDayText = "";
 	  if (trash.mostRecent === undefined) {
-	    leftDayText == "ä¸æ˜";
+	    leftDayText == "•s–¾";
 	  } else {
             var leftDay = Math.ceil((trash.mostRecent.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
 
             if (leftDay == 0) {
-              leftDayText = "ä»Šæ—¥";
+              leftDayText = "¡“ú";
             } else if (leftDay == 1) {
-              leftDayText = "æ˜æ—¥";
+              leftDayText = "–¾“ú";
             } else if (leftDay == 2) {
-              leftDayText = "æ˜å¾Œæ—¥"
+              leftDayText = "–¾Œã“ú"
             } else {
-              leftDayText = leftDay + "æ—¥å¾Œ";
+              leftDayText = leftDay + "“úŒã";
             }
 	  }
 
@@ -589,7 +650,7 @@ $(function() {
 
     $('html,body').animate({scrollTop: 0}, 'fast');
 
-    //ã‚¢ã‚³ãƒ¼ãƒ‡ã‚£ã‚ªãƒ³ã®ãƒ©ãƒ™ãƒ«éƒ¨åˆ†ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãŸã‚‰
+    //ƒAƒR[ƒfƒBƒIƒ“‚Ìƒ‰ƒxƒ‹•”•ª‚ğƒNƒŠƒbƒN‚µ‚½‚ç
     $(".accordion-body").on("shown.bs.collapse", function() {
       var body = $('body');
       var accordion_offset = $($(this).parent().get(0)).offset().top;
@@ -597,7 +658,7 @@ $(function() {
         scrollTop: accordion_offset
       }, 50);
     });
-    //ã‚¢ã‚³ãƒ¼ãƒ‡ã‚£ã‚ªãƒ³ã®éè¡¨ç¤ºéƒ¨åˆ†ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãŸã‚‰
+    //ƒAƒR[ƒfƒBƒIƒ“‚Ì”ñ•\¦•”•ª‚ğƒNƒŠƒbƒN‚µ‚½‚ç
     $(".accordion-body").on("hidden.bs.collapse", function() {
       if ($(".in").length == 0) {
         $("html, body").scrollTop(0);
@@ -605,21 +666,27 @@ $(function() {
     });
   }
 
-  function onChangeSelect(row_index) {ã€€
-    if (row_index == -1) {
+  function onChangeSelect(group_name, area_name) {@
+    if (group_name == -1) {
+      setSelectedGroupName(-1);
       $("#accordion").html("");
-      setSelectedAreaName("");
       return;
     }
-    setSelectedAreaName(areaModels[row_index].label);
+    if (area_name == -1) {
+      setSelectedAreaName(-1);
+      $("#accordion").html("");
+      return;
+    }
+    setSelectedGroupName(group_name);
+    setSelectedAreaName(area_name);
 
     if ($("#accordion").children().length === 0 && descriptions.length === 0) {
 
       createMenuList(function() {
-        updateData(row_index);
+        updateData(group_name, area_name);
       });
     } else {
-      updateData(row_index);
+      updateData(group_name, area_name);
     }
   }
 
@@ -633,16 +700,16 @@ $(function() {
     }
     return -1;
   }
-  //ãƒªã‚¹ãƒˆãŒé¸æŠã•ã‚ŒãŸã‚‰
+  //ƒŠƒXƒg‚ª‘I‘ğ‚³‚ê‚½‚ç
   $("#select_area").change(function(data) {
     var row_index = $(data.target).val();
     onChangeSelect(row_index);
   });
 
   //-----------------------------------
-  //ä½ç½®æƒ…å ±ã‚’ã‚‚ã¨ã«åœ°åŸŸã‚’è‡ªå‹•çš„ã«è¨­å®šã™ã‚‹å‡¦ç†ã§ã™ã€‚
-  //ã“ã‚Œã‹ã‚‰ä¸‹ã¯ç¾åœ¨ã€åˆ©ç”¨ã•ã‚Œã¦ãŠã‚Šã¾ã›ã‚“ã€‚
-  //å°†æ¥çš„ã«ä½¿ã†ã‹ã‚‚ã—ã‚Œãªã„ã®ã§æ®‹ã—ã¦ã‚ã‚Šã¾ã™ã€‚
+  //ˆÊ’uî•ñ‚ğ‚à‚Æ‚É’nˆæ‚ğ©“®“I‚Éİ’è‚·‚éˆ—‚Å‚·B
+  //‚±‚ê‚©‚ç‰º‚ÍŒ»İA—˜—p‚³‚ê‚Ä‚¨‚è‚Ü‚¹‚ñB
+  //«—ˆ“I‚Ég‚¤‚©‚à‚µ‚ê‚È‚¢‚Ì‚Åc‚µ‚Ä‚ ‚è‚Ü‚·B
   $("#gps_area").click(function() {
     navigator.geolocation.getCurrentPosition(function(position) {
       $.getJSON("area_candidate.php", {
@@ -653,7 +720,7 @@ $(function() {
           var area_name = data.candidate;
           var index = getAreaIndex(area_name);
           $("#select_area").val(index).change();
-          alert(area_name + "ãŒè¨­å®šã•ã‚Œã¾ã—ãŸ");
+          alert(area_name + "‚ªİ’è‚³‚ê‚Ü‚µ‚½");
         } else {
           alert(data.reason);
         }
@@ -685,5 +752,5 @@ $(function() {
         return "An unknown error occurred."
     }
   }
-  updateAreaList();
+updateAreaList();
 });
