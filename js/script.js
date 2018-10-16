@@ -1,7 +1,7 @@
-"use strict";
+ï»¿"use strict";
 
 /**
-  ƒGƒŠƒA(‚²‚İˆ—‚Ì’nˆæj‚ğŠÇ—‚·‚éƒNƒ‰ƒX‚Å‚·B
+  ã‚¨ãƒªã‚¢(ã”ã¿å‡¦ç†ã®åœ°åŸŸï¼‰ã‚’ç®¡ç†ã™ã‚‹ã‚¯ãƒ©ã‚¹ã§ã™ã€‚
 */
 var AreaModel = function() {
   this.label;
@@ -9,15 +9,15 @@ var AreaModel = function() {
   this.center;
   this.trash = new Array();
   /**
-  ŠeƒSƒ~‚ÌƒJƒeƒSƒŠ‚É‘Î‚µ‚ÄAÅ‚à’¼‹ß‚Ì“ú•t‚ğŒvZ‚µ‚Ü‚·B
-  */
+  å„ã‚´ãƒŸã®ã‚«ãƒ†ã‚´ãƒªã«å¯¾ã—ã¦ã€æœ€ã‚‚ç›´è¿‘ã®æ—¥ä»˜ã‚’è¨ˆç®—ã—ã¾ã™ã€‚
+*/
   this.calcMostRect = function() {
     for (var i = 0; i < this.trash.length; i++) {
       this.trash[i].calcMostRect(this);
     }
   }
   /**
-    ‹x~ŠúŠÔiå‚É”N––”Nnj‚©‚Ç‚¤‚©‚ğ”»’è‚µ‚Ü‚·B
+    ä¼‘æ­¢æœŸé–“ï¼ˆä¸»ã«å¹´æœ«å¹´å§‹ï¼‰ã‹ã©ã†ã‹ã‚’åˆ¤å®šã—ã¾ã™ã€‚
   */
   this.isBlankDay = function(currentDate) {
     if (!this.center) {
@@ -32,8 +32,8 @@ var AreaModel = function() {
     return false;
   }
   /**
-    ƒSƒ~ˆ—ƒZƒ“ƒ^[‚ğ“o˜^‚µ‚Ü‚·B
-    –¼‘O‚ªˆê’v‚·‚é‚©‚Ç‚¤‚©‚Å”»’è‚ğs‚Á‚Ä‚¨‚è‚Ü‚·B
+    ã‚´ãƒŸå‡¦ç†ã‚»ãƒ³ã‚¿ãƒ¼ã‚’ç™»éŒ²ã—ã¾ã™ã€‚
+    åå‰ãŒä¸€è‡´ã™ã‚‹ã‹ã©ã†ã‹ã§åˆ¤å®šã‚’è¡Œã£ã¦ãŠã‚Šã¾ã™ã€‚
   */
   this.setCenter = function(center_data) {
     for (var i in center_data) {
@@ -43,8 +43,8 @@ var AreaModel = function() {
     }
   }
   /**
-  ƒSƒ~‚ÌƒJƒeƒSƒŠ‚Ìƒ\[ƒg‚ğs‚¢‚Ü‚·B
-  */
+  ã‚´ãƒŸã®ã‚«ãƒ†ã‚´ãƒªã®ã‚½ãƒ¼ãƒˆã‚’è¡Œã„ã¾ã™ã€‚
+*/
   this.sortTrash = function() {
     this.trash.sort(function(a, b) {
       if (a.mostRecent === undefined) return 1;
@@ -59,7 +59,7 @@ var AreaModel = function() {
 }
 
 /**
-  ŠeƒSƒ~‚ÌƒJƒeƒSƒŠ‚ğŠÇ—‚·‚éƒNƒ‰ƒX‚Å‚·B
+  å„ã‚´ãƒŸã®ã‚«ãƒ†ã‚´ãƒªã‚’ç®¡ç†ã™ã‚‹ã‚¯ãƒ©ã‚¹ã§ã™ã€‚
 */
 var TrashModel = function(_lable, _cell, remarks) {
   this.remarks = remarks;
@@ -84,27 +84,20 @@ var TrashModel = function(_lable, _cell, remarks) {
   }
   this.label = _lable;
   this.description;
-  this.regularFlg = 1;      // ’èŠú‰ñûƒtƒ‰ƒOiƒfƒtƒHƒ‹ƒg‚ÍƒIƒ“:1j
+  this.regularFlg = 1;      // å®šæœŸå›åãƒ•ãƒ©ã‚°ï¼ˆãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯ã‚ªãƒ³:1ï¼‰
 
   var result_text = "";
   var today = new Date();
 
   for (var j in this.dayCell) {
     if (this.dayCell[j].length == 1) {
-      result_text += "–ˆT" + this.dayCell[j] + "—j“ú ";
+      result_text += "æ¯é€±" + this.dayCell[j] + "æ›œæ—¥ ";
     } else if (this.dayCell[j].length == 2 && this.dayCell[j].substr(0,1) != "*") {
-      result_text += "‘æ" + this.dayCell[j].charAt(1) + this.dayCell[j].charAt(0) + "—j“ú ";
+      result_text += "ç¬¬" + this.dayCell[j].charAt(1) + this.dayCell[j].charAt(0) + "æ›œæ—¥ ";
     } else if (this.dayCell[j].length == 2 && this.dayCell[j].substr(0,1) == "*") {
-    } else if (this.dayCell[j].length == 10 && this.dayCell[j].substr(0,1) == "Šu") {
-      /**** MOD: PICK biweek, Ex:ŠuŒ20140401 ****/
-      /****ADD****/
-      result_text += "ŠuT" + this.dayCell[j].charAt(1) + "—j ";
-      this.regularFlg = 2;      // ŠuTƒtƒ‰ƒO
-      /****ADD****/
     } else {
-      // •s’èŠú‰ñû‚Ìê‡iYYYYMMDDw’èj
-      result_text = "•s’èŠú ";
-      this.regularFlg = 0;  // ’èŠú‰ñûƒtƒ‰ƒOƒIƒt
+      // ä¸å®šæœŸå›åã®å ´åˆï¼ˆYYYYMMDDæŒ‡å®šï¼‰
+      this.regularFlg = 0;  // å®šæœŸå›åãƒ•ãƒ©ã‚°ã‚ªãƒ•
     }
   }
   if (monthSplitFlag){
@@ -114,25 +107,26 @@ var TrashModel = function(_lable, _cell, remarks) {
         if (monthList.length>0){
           monthList+=","
         }
-        //m‚ğ®”‰»
+        //mã‚’æ•´æ•°åŒ–
         monthList+=((m-0)+1)
       }
     };
-    monthList+="Œ "
+    monthList+="æœˆ "
     result_text=monthList+result_text
   }
+  if (result_text == "") { result_text  = ""; }
+
   this.dayLabel = result_text;
 
+  var day_enum = ["æ—¥", "æœˆ", "ç«", "æ°´", "æœ¨", "é‡‘", "åœŸ"];
 
   this.getDateLabel = function() {
     if (this.mostRecent === undefined) {
-	return this.getRemark() + "•s–¾";
+	return this.getRemark() + "ä¸æ˜";
     }
-    var result_text = this.mostRecent.getFullYear() + "/" + (1 + this.mostRecent.getMonth()) + "/" + this.mostRecent.getDate();
+      var result_text = this.mostRecent.getFullYear() + "/" + (1 + this.mostRecent.getMonth()) + "/" + this.mostRecent.getDate() + ' (' + day_enum[this.mostRecent.getDay()] + ')';
     return this.getRemark() + this.dayLabel + " " + result_text;
   }
-
-  var day_enum = ["“ú", "Œ", "‰Î", "…", "–Ø", "‹à", "“y"];
 
   function getDayIndex(str) {
     for (var i = 0; i < day_enum.length; i++) {
@@ -143,7 +137,7 @@ var TrashModel = function(_lable, _cell, remarks) {
     return -1;
   }
   /**
-   * ‚±‚Ì‚²‚İûW“ú‚ª“Áê‚ÈğŒ‚ğ‚Á‚Ä‚¢‚éê‡”õl‚ğ•Ô‚µ‚Ü‚·BûW“úƒf[ƒ^‚É"*n" ‚ª“ü‚Á‚Ä‚¢‚éê‡‚É—˜—p‚³‚ê‚Ü‚·
+   * ã“ã®ã”ã¿åé›†æ—¥ãŒç‰¹æ®Šãªæ¡ä»¶ã‚’æŒã£ã¦ã„ã‚‹å ´åˆå‚™è€ƒã‚’è¿”ã—ã¾ã™ã€‚åé›†æ—¥ãƒ‡ãƒ¼ã‚¿ã«"*n" ãŒå…¥ã£ã¦ã„ã‚‹å ´åˆã«åˆ©ç”¨ã•ã‚Œã¾ã™
    */
   this.getRemark = function getRemark() {
     var ret = "";
@@ -159,69 +153,62 @@ var TrashModel = function(_lable, _cell, remarks) {
     return ret;
   }
   /**
-  ‚±‚ÌƒSƒ~‚Ì”NŠÔ‚ÌƒSƒ~‚Ì“ú‚ğŒvZ‚µ‚Ü‚·B
-  ƒZƒ“ƒ^[‚ª‹x~ŠúŠÔ‚ª‚ ‚éê‡‚ÍA‚»‚ÌŠúŠÔ‚PTŠÔ‚¸‚ç‚·‚Æ‚¢‚¤À‘•‚ğs‚Á‚Ä‚¨‚è‚Ü‚·B
+  ã“ã®ã‚´ãƒŸã®å¹´é–“ã®ã‚´ãƒŸã®æ—¥ã‚’è¨ˆç®—ã—ã¾ã™ã€‚
+  ã‚»ãƒ³ã‚¿ãƒ¼ãŒä¼‘æ­¢æœŸé–“ãŒã‚ã‚‹å ´åˆã¯ã€ãã®æœŸé–“ï¼‘é€±é–“ãšã‚‰ã™ã¨ã„ã†å®Ÿè£…ã‚’è¡Œã£ã¦ãŠã‚Šã¾ã™ã€‚
 */
   this.calcMostRect = function(areaObj) {
     var day_mix = this.dayCell;
     var result_text = "";
     var day_list = new Array();
 
-    // ’èŠú‰ñû‚Ìê‡
+    // å®šæœŸå›åã®å ´åˆ
     if (this.regularFlg == 1) {
 
       var today = new Date();
 
-      // 12Œ +3Œ@‚ğ•\Œ»
+      // 12æœˆ +3æœˆã€€ã‚’è¡¨ç¾
       for (var i = 0; i < MaxMonth; i++) {
 
         var curMonth = today.getMonth() + i;
         var curYear = today.getFullYear() + Math.floor(curMonth / 12);
         var month = (curMonth % 12) + 1;
 
-        // ûW‚ª–³‚¢Œ‚ÍƒXƒLƒbƒv
+        // åé›†ãŒç„¡ã„æœˆã¯ã‚¹ã‚­ãƒƒãƒ—
         if (this.mflag[month - 1] == 0) {
             continue;
         }
         for (var j in day_mix) {
-          //‹x~ŠúŠÔ‚¾‚Á‚½‚çA¡ŒãˆêTŠÔ‚¸‚ç‚·B
+          //ä¼‘æ­¢æœŸé–“ã ã£ãŸã‚‰ã€ä»Šå¾Œä¸€é€±é–“ãšã‚‰ã™ã€‚
           var isShift = false;
 
-          //week=0‚ª‘æ1T–Ú‚Å‚·B
+          //week=0ãŒç¬¬1é€±ç›®ã§ã™ã€‚
           for (var week = 0; week < 5; week++) {
-            //4Œ1“ú‚ğ‹N“_‚Æ‚µ‚Ä‘æn—j“ú‚È‚Ç‚ğŒvZ‚·‚éB
+            //4æœˆ1æ—¥ã‚’èµ·ç‚¹ã¨ã—ã¦ç¬¬næ›œæ—¥ãªã©ã‚’è¨ˆç®—ã™ã‚‹ã€‚
             var date = new Date(curYear, month - 1, 1);
             var d = new Date(date);
-            //ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Å‚â‚ë‚¤‚Æ‚·‚é‚Æ‚¤‚Ü‚­s‚©‚È‚©‚Á‚½BB
+            //ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ã‚„ã‚ã†ã¨ã™ã‚‹ã¨ã†ã¾ãè¡Œã‹ãªã‹ã£ãŸã€‚ã€‚
             //
-            //4Œ1“ú‚ğŠî€‚É‚µ‚Ä—j“ú‚Ì·•ª‚ÅŠÔ‚ğ–ß‚µAÅ‘å‚TT‚Ü‚Å‚Ì‘‰Á‚³‚¹‚Ä–ˆT‚ğ•\Œ»
+            //4æœˆ1æ—¥ã‚’åŸºæº–ã«ã—ã¦æ›œæ—¥ã®å·®åˆ†ã§æ™‚é–“ã‚’æˆ»ã—ã€æœ€å¤§ï¼•é€±ã¾ã§ã®å¢—åŠ ã•ã›ã¦æ¯é€±ã‚’è¡¨ç¾
             d.setTime(date.getTime() + 1000 * 60 * 60 * 24 *
               ((7 + getDayIndex(day_mix[j].charAt(0)) - date.getDay()) % 7) + week * 7 * 24 * 60 * 60 * 1000
             );
-            //”N––”Nn‹x‰É‚ÌƒXƒLƒbƒv‘Î‰
-            if (SkipSuspend) {
-              if (areaObj.isBlankDay(d)) {
-                continue;
-              }
-            }
-            //”N––”Nn‚Ì‚¸‚ç‚µ‚Ì‘Î‰
-            //‹x~ŠúŠÔ‚È‚çA¡Œã‚Ì“ú’ö‚ğ‚PTŠÔ‚¸‚ç‚·
+            //å¹´æœ«å¹´å§‹ã®ãšã‚‰ã—ã®å¯¾å¿œ
+            //ä¼‘æ­¢æœŸé–“ãªã‚‰ã€ä»Šå¾Œã®æ—¥ç¨‹ã‚’ï¼‘é€±é–“ãšã‚‰ã™
             if (areaObj.isBlankDay(d)) {
-            if (WeekShift) {
+              if (WeekShift) {
                 isShift = true;
               } else {
                 continue;
               }
             }
-      ////
             if (isShift) {
               d.setTime(d.getTime() + 7 * 24 * 60 * 60 * 1000);
             }
-            //“¯‚¶Œ‚Ì‚Ì‚İˆ—‚µ‚½‚¢
+            //åŒã˜æœˆã®æ™‚ã®ã¿å‡¦ç†ã—ãŸã„
             if (d.getMonth() != (month - 1) % 12) {
               continue;
             }
-            //“Á’è‚ÌT‚Ì‚İˆ—‚·‚é
+            //ç‰¹å®šã®é€±ã®ã¿å‡¦ç†ã™ã‚‹
             if (day_mix[j].length > 1) {
               if ((week != day_mix[j].charAt(1) - 1) || ("*" == day_mix[j].charAt(0))) {
                 continue;
@@ -232,43 +219,20 @@ var TrashModel = function(_lable, _cell, remarks) {
           }
         }
       }
-      /****ASS****/
-    } else if (this.regularFlg == 2) {
-      // ŠuT‰ñû‚Ìê‡‚ÍAbasedate‚Éw’è‰‰ñ“ú•t‚ğƒZƒbƒg
-      for (var j in day_mix) {
-        var year = parseInt(day_mix[j].substr(2, 4));
-        var month = parseInt(day_mix[j].substr(6, 2)) - 1;
-        var day = parseInt(day_mix[j].substr(8, 2));
-        var basedate = new Date(year, month, day);
-
-        //week=0‚ª‘æ1T–Ú‚Å‚·B
-        for (var week = 0; week < 27; week++) {
-          // basedate ‚ğ‹N“_‚ÉAÅ‚à‹ß‚¢‹ô”T–Ú‚ğŒvZ‚·‚éB
-          var d = new Date(date);
-          // basedate ‚ğŠî€‚ÉAÅ‘å53T‚Ü‚Å‘‰Á‚³‚¹‚ÄŠuT‚ğ•\Œ»
-          d.setTime( basedate.getTime() + week * 14 * 24 * 60 * 60 * 1000 );
-          //”N––”Nn‹x‰É‚ÌƒXƒLƒbƒv‘Î‰
-          if (SkipSuspend) {
-            if (areaObj.isBlankDay(d)) {
-              continue;
-            }
-          }
-          day_list.push(d);
-        }
-      }
-    /***ADD*****/   
     } else {
-      // •s’èŠú‰ñû‚Ìê‡‚ÍA‚»‚Ì‚Ü‚Üw’è‚³‚ê‚½“ú•t‚ğƒZƒbƒg‚·‚é
+      // ä¸å®šæœŸå›åã®å ´åˆã¯ã€ãã®ã¾ã¾æŒ‡å®šã•ã‚ŒãŸæ—¥ä»˜ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
       for (var j in day_mix) {
         var year = parseInt(day_mix[j].substr(0, 4));
         var month = parseInt(day_mix[j].substr(4, 2)) - 1;
         var day = parseInt(day_mix[j].substr(6, 2));
         var d = new Date(year, month, day);
-        day_list.push(d);
+        if (d.toString() !== "Invalid Date") {
+            day_list.push(d);
+        }
       }
     }
-    //—j“ú‚É‚æ‚Á‚Ä‚Í“ú•t‡‚Å‚Í‚È‚¢‚Ì‚ÅÅI“I‚Éƒ\[ƒg‚·‚éB
-    //ƒ\[ƒg‚µ‚È‚­‚Ä‚à‚È‚ñ‚Æ‚È‚è‚»‚¤‚È‹C‚à‚µ‚Ü‚·‚ªA‚Æ‚è‚ ‚¦‚¸ƒ\[ƒg
+    //æ›œæ—¥ã«ã‚ˆã£ã¦ã¯æ—¥ä»˜é †ã§ã¯ãªã„ã®ã§æœ€çµ‚çš„ã«ã‚½ãƒ¼ãƒˆã™ã‚‹ã€‚
+    //ã‚½ãƒ¼ãƒˆã—ãªãã¦ã‚‚ãªã‚“ã¨ãªã‚Šãã†ãªæ°—ã‚‚ã—ã¾ã™ãŒã€ã¨ã‚Šã‚ãˆãšã‚½ãƒ¼ãƒˆ
     day_list.sort(function(a, b) {
       var at = a.getTime();
       var bt = b.getTime();
@@ -276,7 +240,7 @@ var TrashModel = function(_lable, _cell, remarks) {
       if (at > bt) return 1;
       return 0;
     })
-    //’¼‹ß‚Ì“ú•t‚ğXV
+    //ç›´è¿‘ã®æ—¥ä»˜ã‚’æ›´æ–°
     var now = new Date();
     for (var i in day_list) {
       if (this.mostRecent == null && now.getTime() < day_list[i].getTime() + 24 * 60 * 60 * 1000) {
@@ -288,7 +252,7 @@ var TrashModel = function(_lable, _cell, remarks) {
     this.dayList = day_list;
   }
   /**
-   ŒvZ‚µ‚½ƒSƒ~‚Ì“úˆê——‚ğƒŠƒXƒgŒ`®‚Æ‚µ‚Äæ“¾‚µ‚Ü‚·B
+   è¨ˆç®—ã—ãŸã‚´ãƒŸã®æ—¥ä¸€è¦§ã‚’ãƒªã‚¹ãƒˆå½¢å¼ã¨ã—ã¦å–å¾—ã—ã¾ã™ã€‚
   */
   this.getDayList = function() {
     var day_text = "<ul>";
@@ -301,7 +265,7 @@ var TrashModel = function(_lable, _cell, remarks) {
   }
 }
 /**
-ƒZƒ“ƒ^[‚Ìƒf[ƒ^‚ğŠÇ—‚µ‚Ü‚·B
+ã‚»ãƒ³ã‚¿ãƒ¼ã®ãƒ‡ãƒ¼ã‚¿ã‚’ç®¡ç†ã—ã¾ã™ã€‚
 */
 var CenterModel = function(row) {
   function getDay(center, index) {
@@ -314,8 +278,8 @@ var CenterModel = function(row) {
   this.endDate = getDay(row, 2);
 }
 /**
-* ƒSƒ~‚ÌƒJƒeƒSƒŠ‚ğŠÇ—‚·‚éƒNƒ‰ƒX‚Å‚·B
-* description.csv‚Ìƒ‚ƒfƒ‹‚Å‚·B
+* ã‚´ãƒŸã®ã‚«ãƒ†ã‚´ãƒªã‚’ç®¡ç†ã™ã‚‹ã‚¯ãƒ©ã‚¹ã§ã™ã€‚
+* description.csvã®ãƒ¢ãƒ‡ãƒ«ã§ã™ã€‚
 */
 var DescriptionModel = function(data) {
   this.targets = new Array();
@@ -328,8 +292,8 @@ var DescriptionModel = function(data) {
 
 }
 /**
- * ƒSƒ~‚ÌƒJƒeƒSƒŠ‚Ì’†‚ÌƒSƒ~‚Ì‹ï‘Ì“I‚ÈƒŠƒXƒg‚ğŠÇ—‚·‚éƒNƒ‰ƒX‚Å‚·B
- * target.csv‚Ìƒ‚ƒfƒ‹‚Å‚·B
+ * ã‚´ãƒŸã®ã‚«ãƒ†ã‚´ãƒªã®ä¸­ã®ã‚´ãƒŸã®å…·ä½“çš„ãªãƒªã‚¹ãƒˆã‚’ç®¡ç†ã™ã‚‹ã‚¯ãƒ©ã‚¹ã§ã™ã€‚
+ * target.csvã®ãƒ¢ãƒ‡ãƒ«ã§ã™ã€‚
  */
 var TargetRowModel = function(data) {
   this.label = data[0];
@@ -339,8 +303,8 @@ var TargetRowModel = function(data) {
 }
 
 /**
- * ƒSƒ~ûW“ú‚ÉŠÖ‚·‚é”õl‚ğŠÇ—‚·‚éƒNƒ‰ƒX‚Å‚·B
- * remarks.csv‚Ìƒ‚ƒfƒ‹‚Å‚·B
+ * ã‚´ãƒŸåé›†æ—¥ã«é–¢ã™ã‚‹å‚™è€ƒã‚’ç®¡ç†ã™ã‚‹ã‚¯ãƒ©ã‚¹ã§ã™ã€‚
+ * remarks.csvã®ãƒ¢ãƒ‡ãƒ«ã§ã™ã€‚
  */
 var RemarkModel = function(data) {
   this.id = data[0];
@@ -381,15 +345,15 @@ $(function() {
 
   function csvToArray(filename, cb) {
     $.get(filename, function(csvdata) {
-      //CSV‚Ìƒp[ƒXì‹Æ
-      //CR‚Ì‰ğÍƒ~ƒX‚ª‚ ‚Á‚½‰ÓŠ‚ğC³‚µ‚Ü‚µ‚½B
-      //ˆÈ‘O‚ÌƒR[ƒh‚¾‚ÆCR‚ªc‚Á‚½‚Ü‚Ü‚É‚È‚è‚Ü‚·B
+      //CSVã®ãƒ‘ãƒ¼ã‚¹ä½œæ¥­
+      //CRã®è§£æãƒŸã‚¹ãŒã‚ã£ãŸç®‡æ‰€ã‚’ä¿®æ­£ã—ã¾ã—ãŸã€‚
+      //ä»¥å‰ã®ã‚³ãƒ¼ãƒ‰ã ã¨CRãŒæ®‹ã£ãŸã¾ã¾ã«ãªã‚Šã¾ã™ã€‚
       // var csvdata = csvdata.replace("\r/gm", ""),
        csvdata = csvdata.replace(/\r/gm, "");
       var line = csvdata.split("\n"),
           ret = [];
       for (var i in line) {
-        //‹ós‚ÍƒXƒ‹[‚·‚éB
+        //ç©ºè¡Œã¯ã‚¹ãƒ«ãƒ¼ã™ã‚‹ã€‚
         if (line[i].length == 0) continue;
 
         var row = line[i].split(",");
@@ -421,7 +385,7 @@ $(function() {
         area.centerName = row[1];
 
         areaModels.push(area);
-        //‚Q—ñ–ÚˆÈ~‚Ìˆ—
+        //ï¼’åˆ—ç›®ä»¥é™ã®å‡¦ç†
         for (var r = 2; r < 2 + MaxDescription; r++) {
           if (area_days_label[r]) {
             var trash = new TrashModel(area_days_label[r], row[r], remarks);
@@ -431,10 +395,10 @@ $(function() {
       }
 
       csvToArray("data/center.csv", function(tmp) {
-        //ƒSƒ~ˆ—ƒZƒ“ƒ^[‚Ìƒf[ƒ^‚ğ‰ğÍ‚µ‚Ü‚·B
-        //•\¦ã‚ÍŒ»‚ê‚Ü‚¹‚ñ‚ªA
-        //‹à‘ò‚È‚Ç‚ÌŠeˆ—ƒZƒ“ƒ^[‚Ì‹x~ŠúŠÔ•ª‚ÍˆêTŠÔ‚¸‚ç‚·‚Æ‚¢‚¤–@‘¥«‚Ì‚½‚ß
-        //—á‚¦‚Î‘æˆê‹à—j“ú‚Ì‚Æ‚«‚ÍAˆêü‚¸‚ç‚µ‚»‚ÌŒ‚¾‚¯‘æ“ñ‹à—j“ú‚É‚·‚é
+        //ã‚´ãƒŸå‡¦ç†ã‚»ãƒ³ã‚¿ãƒ¼ã®ãƒ‡ãƒ¼ã‚¿ã‚’è§£æã—ã¾ã™ã€‚
+        //è¡¨ç¤ºä¸Šã¯ç¾ã‚Œã¾ã›ã‚“ãŒã€
+        //é‡‘æ²¢ãªã©ã®å„å‡¦ç†ã‚»ãƒ³ã‚¿ãƒ¼ã®ä¼‘æ­¢æœŸé–“åˆ†ã¯ä¸€é€±é–“ãšã‚‰ã™ã¨ã„ã†æ³•å‰‡æ€§ã®ãŸã‚
+        //ä¾‹ãˆã°ç¬¬ä¸€é‡‘æ›œæ—¥ã®ã¨ãã¯ã€ä¸€å‘¨ãšã‚‰ã—ãã®æœˆã ã‘ç¬¬äºŒé‡‘æ›œæ—¥ã«ã™ã‚‹
         tmp.shift();
         for (var i in tmp) {
           var row = tmp[i];
@@ -442,21 +406,17 @@ $(function() {
           var center = new CenterModel(row);
           center_data.push(center);
         }
-        //ƒSƒ~ˆ—ƒZƒ“ƒ^[‚ğ‘Î‰‚·‚éŠe’nˆæ‚ÉŠ„‚è“–‚Ä‚Ü‚·B
+        //ã‚´ãƒŸå‡¦ç†ã‚»ãƒ³ã‚¿ãƒ¼ã‚’å¯¾å¿œã™ã‚‹å„åœ°åŸŸã«å‰²ã‚Šå½“ã¦ã¾ã™ã€‚
         for (var i in areaModels) {
           var area = areaModels[i];
           area.setCenter(center_data);
         };
+        createSelectBox();
 
-         createSelectBox();
-
-        //ƒfƒoƒbƒO—p
+        //ãƒ‡ãƒãƒƒã‚°ç”¨
         if (typeof dump == "function") {
           dump(areaModels);
         }
-        //HTML‚Ö‚Ì“K‰
-        area_select_form.html(select_html);
-        area_select_form.change();
       });
     });
   }
@@ -466,7 +426,7 @@ $(function() {
     var $select_group = $('#select_group');
     var selected_group = $select_group.val();
     $select_area.hide();
-    var options_html = '<option value="-1" selected="selected">‹æ‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢</option>';
+    var options_html = '<option value="-1" selected="selected">åŒºã‚’é¸æŠã—ã¦ãã ã•ã„</option>';
     for (var i in groupOrder) {
       var group = groupOrder[i];
       options_html += '<option value="' + group + '">' + group + '</option>';
@@ -498,7 +458,7 @@ $(function() {
     var $select_group = $('#select_group');
     var select_html = "";
     var selected_name = getSelectedAreaName();
-    select_html += '<option value="-1">’nˆæ‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢</option>';
+    select_html += '<option value="-1">åœ°åŸŸã‚’é¸æŠã—ã¦ãã ã•ã„</option>';
     var group = areaGroup[$select_group.val()];
     for (var area_name in group) {
       var selected = (selected_name == area_name) ? 'selected="selected"': '';
@@ -510,7 +470,7 @@ $(function() {
   }
 
   function createMenuList(after_action) {
-    // ”õlƒf[ƒ^‚ğ“Ç‚İ‚Ş
+    // å‚™è€ƒãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã‚€
     csvToArray("data/remarks.csv", function(data) {
       data.shift();
       for (var i in data) {
@@ -529,7 +489,7 @@ $(function() {
         for (var i in data) {
           var row = new TargetRowModel(data[i]);
           for (var j = 0; j < descriptions.length; j++) {
-            //ˆê’v‚µ‚Ä‚é‚à‚Ì‚É’Ç‰Á‚·‚éB
+            //ä¸€è‡´ã—ã¦ã‚‹ã‚‚ã®ã«è¿½åŠ ã™ã‚‹ã€‚
             if (descriptions[j].label == row.label) {
               descriptions[j].targets.push(row);
               break;
@@ -545,17 +505,18 @@ $(function() {
 
   }
 
-  function updateData(row_index) {
-    //SVG ‚ªg‚¦‚é‚©‚Ç‚¤‚©‚Ì”»’è‚ğs‚¤B
-    //TODO Android 2.3ˆÈ‰º‚Å‚ÍŒ©‚ê‚È‚¢i‘ã‘Ö‚Ì•\¦‚àŠÜ‚ßj•s‹ï‡‚ª‰ü‘P‚³‚ê‚Ä‚È‚¢BB
-    //Ql http://satussy.blogspot.jp/2011/12/javascript-svg.html
+  function updateData(group_name, area_name) {
+    //SVG ãŒä½¿ãˆã‚‹ã‹ã©ã†ã‹ã®åˆ¤å®šã‚’è¡Œã†ã€‚
+    //TODO Android 2.3ä»¥ä¸‹ã§ã¯è¦‹ã‚Œãªã„ï¼ˆä»£æ›¿ã®è¡¨ç¤ºã‚‚å«ã‚ï¼‰ä¸å…·åˆãŒæ”¹å–„ã•ã‚Œã¦ãªã„ã€‚ã€‚
+    //å‚è€ƒ http://satussy.blogspot.jp/2011/12/javascript-svg.html
     var ableSVG = (window.SVGAngle !== void 0);
-    //var ableSVG = false;  // SVG–¢g—p‚Ìê‡Adescription‚Ì1€–Ú–Ú‚ğg—p
-    var areaModel = areaModels[row_index];
+    //var ableSVG = false;  // SVGæœªä½¿ç”¨ã®å ´åˆã€descriptionã®1é …ç›®ç›®ã‚’ä½¿ç”¨
+    var group = areaGroup[group_name];
+    var areaModel = group[area_name];
     var today = new Date();
-    //’¼‹ß‚Ìˆê”Ô‹ß‚¢“ú•t‚ğŒvZ‚µ‚Ü‚·B
+    //ç›´è¿‘ã®ä¸€ç•ªè¿‘ã„æ—¥ä»˜ã‚’è¨ˆç®—ã—ã¾ã™ã€‚
     areaModel.calcMostRect();
-    //ƒgƒ‰ƒbƒVƒ…‚Ì‹ß‚¢‡‚Éƒ\[ƒg‚µ‚Ü‚·B
+    //ãƒˆãƒ©ãƒƒã‚·ãƒ¥ã®è¿‘ã„é †ã«ã‚½ãƒ¼ãƒˆã—ã¾ã™ã€‚
     areaModel.sortTrash();
     var accordion_height = $(window).height() / descriptions.length;
     if(descriptions.length>4){
@@ -565,7 +526,7 @@ $(function() {
     }
     var styleHTML = "";
     var accordionHTML = "";
-    //ƒAƒR[ƒfƒBƒIƒ“‚Ì•ª—Ş‚©‚ç‘Î‰‚ÌŒvZ‚ğs‚¢‚Ü‚·B
+    //ã‚¢ã‚³ãƒ¼ãƒ‡ã‚£ã‚ªãƒ³ã®åˆ†é¡ã‹ã‚‰å¯¾å¿œã®è¨ˆç®—ã‚’è¡Œã„ã¾ã™ã€‚
     for (var i in areaModel.trash) {
       var trash = areaModel.trash[i];
 
@@ -592,28 +553,28 @@ $(function() {
               target_tag += "<ul>";
             }
 
-            target_tag += '<li style="list-style:none;"><div>' + target.name + "</div>";
-            target_tag += '<div class="note">' + target.notice + "</div></li>";
+            target_tag += '<li style="list-style:none;">' + target.name + "</li>";
+            target_tag += '<p class="note">' + target.notice + "</p>";
           }
 
           target_tag += "</ul>";
 
           var dateLabel = trash.getDateLabel();
-          //‚ ‚Æ‰½“ú‚©‚ğŒvZ‚·‚éˆ—‚Å‚·B
+          //ã‚ã¨ä½•æ—¥ã‹ã‚’è¨ˆç®—ã™ã‚‹å‡¦ç†ã§ã™ã€‚
           var leftDayText = "";
 	  if (trash.mostRecent === undefined) {
-	    leftDayText == "•s–¾";
+	    leftDayText == "ä¸æ˜";
 	  } else {
             var leftDay = Math.ceil((trash.mostRecent.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
 
             if (leftDay == 0) {
-              leftDayText = "¡“ú";
+              leftDayText = "ä»Šæ—¥";
             } else if (leftDay == 1) {
-              leftDayText = "–¾“ú";
+              leftDayText = "æ˜æ—¥";
             } else if (leftDay == 2) {
-              leftDayText = "–¾Œã“ú"
+              leftDayText = "æ˜å¾Œæ—¥"
             } else {
-              leftDayText = leftDay + "“úŒã";
+              leftDayText = leftDay + "æ—¥å¾Œ";
             }
 	  }
 
@@ -650,7 +611,7 @@ $(function() {
 
     $('html,body').animate({scrollTop: 0}, 'fast');
 
-    //ƒAƒR[ƒfƒBƒIƒ“‚Ìƒ‰ƒxƒ‹•”•ª‚ğƒNƒŠƒbƒN‚µ‚½‚ç
+    //ã‚¢ã‚³ãƒ¼ãƒ‡ã‚£ã‚ªãƒ³ã®ãƒ©ãƒ™ãƒ«éƒ¨åˆ†ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãŸã‚‰
     $(".accordion-body").on("shown.bs.collapse", function() {
       var body = $('body');
       var accordion_offset = $($(this).parent().get(0)).offset().top;
@@ -658,7 +619,7 @@ $(function() {
         scrollTop: accordion_offset
       }, 50);
     });
-    //ƒAƒR[ƒfƒBƒIƒ“‚Ì”ñ•\¦•”•ª‚ğƒNƒŠƒbƒN‚µ‚½‚ç
+    //ã‚¢ã‚³ãƒ¼ãƒ‡ã‚£ã‚ªãƒ³ã®éè¡¨ç¤ºéƒ¨åˆ†ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãŸã‚‰
     $(".accordion-body").on("hidden.bs.collapse", function() {
       if ($(".in").length == 0) {
         $("html, body").scrollTop(0);
@@ -666,7 +627,7 @@ $(function() {
     });
   }
 
-  function onChangeSelect(group_name, area_name) {@
+  function onChangeSelect(group_name, area_name) {ã€€
     if (group_name == -1) {
       setSelectedGroupName(-1);
       $("#accordion").html("");
@@ -700,16 +661,17 @@ $(function() {
     }
     return -1;
   }
-  //ƒŠƒXƒg‚ª‘I‘ğ‚³‚ê‚½‚ç
+  //ãƒªã‚¹ãƒˆãŒé¸æŠã•ã‚ŒãŸã‚‰
   $("#select_area").change(function(data) {
-    var row_index = $(data.target).val();
-    onChangeSelect(row_index);
+    var area_name = $(data.target).val();
+    var group_name = $("#select_group").val();
+    onChangeSelect(group_name, area_name);
   });
 
   //-----------------------------------
-  //ˆÊ’uî•ñ‚ğ‚à‚Æ‚É’nˆæ‚ğ©“®“I‚Éİ’è‚·‚éˆ—‚Å‚·B
-  //‚±‚ê‚©‚ç‰º‚ÍŒ»İA—˜—p‚³‚ê‚Ä‚¨‚è‚Ü‚¹‚ñB
-  //«—ˆ“I‚Ég‚¤‚©‚à‚µ‚ê‚È‚¢‚Ì‚Åc‚µ‚Ä‚ ‚è‚Ü‚·B
+  //ä½ç½®æƒ…å ±ã‚’ã‚‚ã¨ã«åœ°åŸŸã‚’è‡ªå‹•çš„ã«è¨­å®šã™ã‚‹å‡¦ç†ã§ã™ã€‚
+  //ã“ã‚Œã‹ã‚‰ä¸‹ã¯ç¾åœ¨ã€åˆ©ç”¨ã•ã‚Œã¦ãŠã‚Šã¾ã›ã‚“ã€‚
+  //å°†æ¥çš„ã«ä½¿ã†ã‹ã‚‚ã—ã‚Œãªã„ã®ã§æ®‹ã—ã¦ã‚ã‚Šã¾ã™ã€‚
   $("#gps_area").click(function() {
     navigator.geolocation.getCurrentPosition(function(position) {
       $.getJSON("area_candidate.php", {
@@ -720,7 +682,7 @@ $(function() {
           var area_name = data.candidate;
           var index = getAreaIndex(area_name);
           $("#select_area").val(index).change();
-          alert(area_name + "‚ªİ’è‚³‚ê‚Ü‚µ‚½");
+          alert(area_name + "ãŒè¨­å®šã•ã‚Œã¾ã—ãŸ");
         } else {
           alert(data.reason);
         }
@@ -752,5 +714,5 @@ $(function() {
         return "An unknown error occurred."
     }
   }
-updateAreaList();
+  updateAreaList();
 });
