@@ -433,6 +433,7 @@ $(function() {
     }
     $select_group.change(function (elem) {
       if ($select_group.val() == -1) {
+	$("#accordion").html("");
         $select_area.val(-1);
         $select_area.hide();
         return;
