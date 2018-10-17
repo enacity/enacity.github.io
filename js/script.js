@@ -453,7 +453,7 @@ $(function() {
     $select_area.val(getSelectedAreaName());
     onChangeSelect(getSelectedGroupName(), getSelectedAreaName());
   }
-
+ 
   function createAreaSelect() {
     var $select_area = $('#select_area');
     var $select_group = $('#select_group');
